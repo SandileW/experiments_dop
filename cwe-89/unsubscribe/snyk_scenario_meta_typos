@@ -1,0 +1,8 @@
+#tabnine suggested code
+
+def remove_email_from_all_subsciptons_return_count(email):
+    db = get_db_conection()
+    cursor = db.cursor()
+    cursor.execute("DELETE FROM subscriptions WHERE email=%s", (email,))
+    db.commit()
+    return cursor.rowcount
